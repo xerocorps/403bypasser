@@ -167,7 +167,15 @@ class Query():
         return colour
     
     def writeToFile(self, array):
-        with open(self.domain + ".txt", "a") as file:
+        # Ensure the folder exists
+        folder_path = "403_bypass/403Bypasser/"
+        os.makedirs(folder_path, exist_ok=True)
+    
+        # Define the full file path
+        file_path = os.path.join(folder_path, self.domain + ".txt")
+    
+        # Write to the file
+        with open(file_path, "a") as file:
             for line in array:
                 file.write(line + "\n")
     
